@@ -1,0 +1,556 @@
+/* Animations */
+@keyframes fade_in {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide_in {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Button Styles */
+.button_custom,
+.dashboard_button {
+    background-color: rgba(145, 123, 155, 0.1);
+    color: #fff;
+    padding: 0.65rem;
+    border-radius: 0.5rem;
+    border: 1px solid #9e7b9b;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+}
+
+/* Dashboard specific button styles */
+.dashboard_button {
+    border-color: #303030;
+    background-color: black;
+}
+
+/* Button hover effects */
+.button_custom:hover {
+    background-color: rgba(145, 123, 155, 0.2);
+    transform: translateY(-2px);
+}
+
+.dashboard_button:hover {
+    background-color: rgba(20, 20, 20, 0.7);
+    transform: translateY(-2px);
+}
+
+/* Download button specific styles */
+.download_button {
+    background-color: rgba(93, 63, 136, 0.1);
+    border: 1px solid #5d3f88;
+}
+
+.download_button:hover {
+    background-color: rgba(93, 63, 136, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Typography */
+h1 {
+    color: #dbdbdb;
+}
+
+/* Logo styling */
+.logo {
+    width: 80px;
+    height: auto;
+    position: absolute;
+    left: 0;
+    animation: fade_in 0.5s ease-out;
+    filter: drop-shadow(5px 4px 25px rgba(255, 255, 255, 0.1));
+}
+
+/* Main content container */
+.content {
+    animation: slide_in 0.5s ease-out;
+}
+
+/* Footer styling */
+.footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #858489;
+    font-size: 0.875rem;
+}
+
+/* Heart icon in footer */
+.heart {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-left: 0.25rem;
+    background-color: #9e7b9b;
+    clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%);
+}
+
+/* Interactive circle effect */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(145, 123, 155, 0.5);
+    pointer-events: none;
+    transition: transform 0.1s ease;
+    width: 60px;
+    height: 60px;
+    filter: blur(10px);
+}
+
+/* Blurred circle effect */
+.blur-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(100px);
+    z-index: 1000;
+}
+
+/* CSS Variables */
+:root {
+    --primary_color: #9376E6;
+    --secondary_color: #5D3F88;
+}
+
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease;
+    animation: fade_in 0.5s ease-in;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Theme specific styles */
+.dark {
+    color-scheme: dark;
+}
+
+/* Dashboard container styles */
+.dashboard_container {
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    animation: slide_in 0.5s ease forwards;
+    transition: all 0.3s ease;
+}
+
+/* Theme-specific dashboard styles */
+.dark .dashboard_container {
+    background: rgba(18, 18, 18, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .dashboard_container {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Card components */
+.stat_card,
+.script_card {
+    transition: all 0.3s ease;
+}
+
+/* Theme-specific card styles */
+.dark .stat_card,
+.dark .script_card {
+    background: rgba(145, 123, 155, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .stat_card,
+.light .script_card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Card hover effects */
+.stat_card:hover,
+.script_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(147, 118, 230, 0.2);
+}
+
+.dark .stat_card:hover {
+    box-shadow: 0 10px 20px rgba(147, 118, 230, 0.1);
+}
+
+.light .stat_card:hover {
+    box-shadow: 0 10px 20px rgba(147, 118, 230, 0.2);
+}
+
+/* Button and theme toggle components */
+.button,
+.theme_toggle {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Primary button styles */
+.button {
+    background: linear-gradient(45deg, var(--primary_color), var(--secondary_color));
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(147, 118, 230, 0.3);
+}
+
+/* Button hover effect */
+.button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.6s ease;
+}
+
+.button:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Theme toggle styles */
+.theme_toggle:hover {
+    background: rgba(147, 118, 230, 0.1);
+}
+
+/* Navigation styles */
+.nav-button {
+    background: rgba(147, 118, 230, 0.1);
+    border: 1px solid rgba(147, 118, 230, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    color: #9376E6;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+}
+
+.nav-button:hover {
+    background: rgba(147, 118, 230, 0.2);
+    transform: translateY(-2px);
+}
+
+.light .nav-button {
+    background: rgba(147, 118, 230, 0.1);
+    color: #5D3F88;
+}
+
+.light .nav-content {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light body {
+    background-color: #f8fafc;
+    color: #1e293b;
+}
+
+nav {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+nav .dashboard_container {
+    backdrop-filter: blur(10px);
+    background: rgba(18, 18, 18, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light nav .dashboard_container {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+nav .button_custom {
+    padding: 0.5rem 1rem;
+}
+
+.nav_hidden {
+    transform: translateY(-100%);
+}
+
+.nav_link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav_link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary_color), var(--secondary_color));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav_link:hover::after {
+    width: 80%;
+}
+
+.nav-container {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    padding: 1rem;
+}
+
+.nav-content {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    transform-origin: top;
+}
+
+.light .nav-content {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .nav-content {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+footer {
+    animation: slide_up 0.5s ease;
+}
+
+.footer_text {
+    background: linear-gradient(45deg, #9376E6, #5D3F88);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient_flow 3s ease infinite;
+}
+
+.heart_icon {
+    display: inline-block;
+    color: #9376E6;
+    animation: heart_beat 1.5s ease-in-out infinite;
+}
+
+.version_tag {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.version_tag:hover {
+    opacity: 1;
+}
+
+.download_button {
+    background-color: rgba(93, 63, 136, 0.1);
+    border: 1px solid #5d3f88;
+}
+
+.download_button:hover {
+    background-color: rgba(93, 63, 136, 0.2);
+    transform: translateY(-2px);
+}
+
+.button_custom,
+.dashboard_button {
+    background-color: rgba(145, 123, 155, 0.1);
+    color: #fff;
+    padding: 0.65rem;
+    border-radius: 0.5rem;
+    border: 1px solid #9e7b9b;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+}
+
+.script_card .button_custom {
+    background: rgba(147, 118, 230, 0.15);
+    border: 1px solid rgba(147, 118, 230, 0.3);
+    color: #9376E6;
+}
+
+.dark .script_card .button_custom {
+    color: #fff;
+}
+
+.script_card .button_custom:hover {
+    background: rgba(147, 118, 230, 0.25);
+}
+
+.script_card .group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(147, 118, 230, 0.2);
+}
+
+.play_button {
+    margin-left: auto;
+}
+
+.gradient-background {
+    background: linear-gradient(118deg, #a25c1c, #5625e5, #b1485b, #c07de6);
+    background-size: 240% 240%;
+    animation: gradient-animation 40s ease infinite;
+}
+
+#theme-toggle {
+    height: 38px;
+    width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: rgba(147, 118, 230, 0.1);
+    border: 1px solid rgba(147, 118, 230, 0.2);
+}
+
+#theme-toggle:hover {
+    background: rgba(147, 118, 230, 0.2);
+}
+
+@keyframes fade_in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide_in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide_up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradient_flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes heart_beat {
+    0% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.3);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.3);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+}
+
+.dropdown:focus-within .dropdown-content {
+    display: block !important;
+}
+
+.dropdown-content {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
